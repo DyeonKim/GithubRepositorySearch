@@ -7,5 +7,8 @@ import retrofit2.http.Query
 
 interface GitHubApi {
     @GET("search/repositories")
-    fun loadRepo(@Query("q") q: String): Call<Repo>
+    fun loadRepo(
+        @Query("q") q: String,
+        @Query("sort") sort: String = "stars"
+    ): Call<Repo>
 }
