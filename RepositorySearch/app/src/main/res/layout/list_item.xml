@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="repo"
-            type="com.doyeonkim.repositorysearch.models.Repo" />
+            name="item"
+            type="com.doyeonkim.repositorysearch.models.Item" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +20,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-black"
-            android:text="@{repo.name}"
+            android:text="@{item.name}"
             tools:text="name"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,12 +30,13 @@
             android:id="@+id/tvLanguage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:text="@{repo.language}"
-            tools:text="language"
-            app:layout_constraintBottom_toBottomOf="@+id/tvRepoName"
-            app:layout_constraintStart_toEndOf="@+id/tvRepoName" />
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@{item.language}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvRepoName"
+            tools:text="language" />
 
         <ImageView
             android:id="@+id/imgOwner"
@@ -43,7 +44,8 @@
             android:layout_height="25dp"
             app:layout_constraintBottom_toBottomOf="@+id/tvLanguage"
             app:layout_constraintEnd_toStartOf="@+id/tvOwnerId"
-            app:ownerImg="@{repo.owner.avatarUrl}"
+            app:layout_constraintTop_toTopOf="@+id/tvLanguage"
+            app:ownerImg="@{item.owner.avatarUrl}"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
@@ -52,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:text="@{repo.owner.userId}"
+            android:text="@{item.owner.userId}"
             tools:text="ownerId"
             app:layout_constraintBottom_toBottomOf="@+id/imgOwner"
             app:layout_constraintEnd_toEndOf="parent"
@@ -63,10 +65,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@{repo.url}"
-            tools:text="https://url.com"
+            android:text="@{item.url}"
             app:layout_constraintStart_toStartOf="@+id/tvRepoName"
-            app:layout_constraintTop_toBottomOf="@+id/tvRepoName" />
+            app:layout_constraintTop_toBottomOf="@+id/tvLanguage"
+            tools:text="https://url.com" />
 
         <TextView
             android:id="@+id/tvDescription"
@@ -77,7 +79,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:text="@{repo.description}"
+            android:text="@{item.description}"
             tools:text="description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:text="@{repo.forks}"
+            android:text="@{String.valueOf(item.forks)}"
             tools:text="forks"
             app:layout_constraintBottom_toBottomOf="@+id/imgFork"
             app:layout_constraintStart_toEndOf="@+id/imgFork"
@@ -123,7 +125,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:text="@{repo.forks}"
+            android:text="@{String.valueOf(item.forks)}"
             tools:text="watchers"
             app:layout_constraintBottom_toBottomOf="@+id/imgWatcher"
             app:layout_constraintStart_toEndOf="@+id/imgWatcher"
