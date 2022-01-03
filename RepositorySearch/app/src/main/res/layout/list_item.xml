@@ -42,6 +42,8 @@
             android:id="@+id/imgOwner"
             android:layout_width="25dp"
             android:layout_height="25dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/tvLanguage"
             app:layout_constraintEnd_toStartOf="@+id/tvOwnerId"
             app:layout_constraintTop_toTopOf="@+id/tvLanguage"
@@ -79,11 +81,13 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
+            android:ellipsize="end"
+            android:maxLines="3"
             android:text="@{item.description}"
-            tools:text="description"
+            tools:text="description" />
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvUrl" />
+            app:layout_constraintTop_toBottomOf="@+id/tvUrl"
 
         <ImageView
             android:id="@+id/imgFork"
@@ -102,7 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:text="@{String.valueOf(item.forks)}"
+            app:countFormat="@{item.forks}"
             tools:text="forks"
             app:layout_constraintBottom_toBottomOf="@+id/imgFork"
             app:layout_constraintStart_toEndOf="@+id/imgFork"
@@ -125,7 +129,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:text="@{String.valueOf(item.forks)}"
+            app:countFormat="@{item.watchers}"
             tools:text="watchers"
             app:layout_constraintBottom_toBottomOf="@+id/imgWatcher"
             app:layout_constraintStart_toEndOf="@+id/imgWatcher"

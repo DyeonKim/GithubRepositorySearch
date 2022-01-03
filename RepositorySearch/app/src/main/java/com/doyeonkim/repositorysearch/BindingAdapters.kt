@@ -15,4 +15,22 @@ object BindingAdapters {
             .circleCrop()
             .into(imageView)
     }
+
+    @JvmStatic
+    @BindingAdapter("app:countFormat")
+    fun setCountFormat(textView: TextView, count: Int) {
+        var result: String
+
+        if (count >= 1_000_000_000) {       // B
+            result = "${(count / 1_000_000_000)}.${(count % 1_000_000_000) / 100_000_000}B"
+        } else if (count >= 1_000_000) {    // M
+            result = "${(count / 1_000_000)}.${(count % 1_000_000) / 100_000}M"
+        } else if (count >= 1_000) {        // K
+            result = "${(count / 1_000)}.${(count % 1_000) / 100}K"
+        } else {
+            result = count.toString()
+        }
+
+        textView.setText(result)
+    }
 }
